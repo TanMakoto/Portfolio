@@ -496,34 +496,74 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="card glass-card p-4 p-md-5 border-0">
-                        <form action="#" method="POST">
+                        <form id="contactForm" method="POST">
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label class="form-label text-white small fs-6">ชื่อผู้ติดต่อ</label>
-                                    <input type="text" class="form-control form-control-custom"
-                                        placeholder="กรอกชื่อของคุณ" required>
+                                    <input type="text" id="contactName" name="name"
+                                        class="form-control form-control-custom" placeholder="กรอกชื่อของคุณ" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label text-white small fs-6">อีเมลติดต่อ</label>
-                                    <input type="email" class="form-control form-control-custom"
-                                        placeholder="email@example.com" required>
+                                    <input type="email" id="contactEmail" name="email"
+                                        class="form-control form-control-custom" placeholder="email@example.com"
+                                        required>
                                 </div>
                                 <div class="col-md-12">
                                     <label class="form-label text-white small fs-6">หัวข้อข้อความ</label>
-                                    <input type="text" class="form-control form-control-custom"
-                                        placeholder="เรื่องที่ต้องการติดต่อ" required>
+                                    <input type="text" id="contactSubject" name="subject"
+                                        class="form-control form-control-custom" placeholder="เรื่องที่ต้องการติดต่อ"
+                                        required>
                                 </div>
                                 <div class="col-md-12">
                                     <label class="form-label text-white small fs-6">รายละเอียดข้อความ</label>
-                                    <textarea class="form-control form-control-custom" rows="4"
+                                    <textarea id="contactMessage" name="message"
+                                        class="form-control form-control-custom" rows="4"
                                         placeholder="พิมพ์ข้อความของคุณตรงนี้..." required></textarea>
                                 </div>
                                 <div class="col-md-12 text-center mt-4">
                                     <button type="submit" class="btn btn-primary btn-lg rounded-pill w-100"
                                         style="background: var(--gradient-main); border: none;">ส่งข้อความ</button>
                                 </div>
+                                <div class="col-md-12">
+                                    <div id="formStatus" class="mt-3 text-center"
+                                        style="display: none; padding: 10px; border-radius: 8px;"></div>
+                                </div>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Message Output Section (Database Sync) -->
+            <div class="row justify-content-center mt-5">
+                <div class="col-lg-8">
+                    <div class="card glass-card p-4 border-0">
+                        <h3 class="fw-bold mb-4 text-center fs-4 text-white"><i
+                                class="bi bi-database-check text-primary me-2"></i>ข้อความล่าสุดจากผู้ติดต่อ
+                            (เชื่อมต่อฐานข้อมูล)</h3>
+                        <div class="table-responsive">
+                            <table class="table table-dark table-hover table-borderless align-middle mb-0"
+                                style="background: transparent;">
+                                <thead>
+                                    <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+                                        <th scope="col" style="background: transparent;" class="text-white py-3">วันเวลา
+                                        </th>
+                                        <th scope="col" style="background: transparent;" class="text-white py-3">ชื่อ
+                                        </th>
+                                        <th scope="col" style="background: transparent;" class="text-white py-3">เรื่อง
+                                        </th>
+                                        <th scope="col" style="background: transparent;" class="text-white py-3">ข้อความ
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="messagesTableBody">
+                                    <tr>
+                                        <td colspan="4" class="text-center py-4 text-muted">กำลังโหลดข้อมูล...</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -553,6 +593,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
     <script>
         window.addEventListener('DOMContentLoaded', () => {
+            // Initialize 3D Net background
             VANTA.NET({
                 el: "#vanta-bg",
                 mouseControls: true,
@@ -568,7 +609,145 @@
                 maxDistance: 20.00,
                 spacing: 16.00
             });
+
+            // Fetch and load existing messages
+            fetchMessages();
+
+            // Setup AJAX submit handler
+            setupFormSubmit();
         });
+
+        // Helper to escape HTML characters (XSS Prevention)
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, function (m) { return map[m]; });
+        }
+
+        // Fetch messages from DB via PHP
+        async function fetchMessages() {
+            const tableBody = document.getElementById('messagesTableBody');
+            if (!tableBody) return;
+
+            try {
+                const response = await fetch('process.php?action=get_messages');
+                const result = await response.json();
+
+                if (result.status === 'success' && result.data && result.data.length > 0) {
+                    tableBody.innerHTML = '';
+                    result.data.forEach(msg => {
+                        const date = new Date(msg.created_at);
+                        const formattedDate = date.toLocaleDateString('th-TH', {
+                            day: '2-digit',
+                            month: '2-digit',
+                            year: 'numeric',
+                            hour: '2-digit',
+                            minute: '2-digit'
+                        });
+
+                        const row = `
+                            <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.03);">
+                                <td style="background: transparent;" class="text-white small">${formattedDate}</td>
+                                <td style="background: transparent;" class="text-white fw-bold">${escapeHtml(msg.name)}</td>
+                                <td style="background: transparent;" class="text-primary-emphasis fw-semibold">${escapeHtml(msg.subject)}</td>
+                                <td style="background: transparent;" class="text-white-50 text-wrap">${escapeHtml(msg.message)}</td>
+                            </tr>
+                        `;
+                        tableBody.insertAdjacentHTML('beforeend', row);
+                    });
+                } else {
+                    tableBody.innerHTML = `
+                        <tr>
+                            <td colspan="4" class="text-center py-4 text-muted">ยังไม่มีข้อความส่งเข้ามาในระบบ</td>
+                        </tr>
+                    `;
+                }
+            } catch (error) {
+                console.error('Error fetching messages:', error);
+                tableBody.innerHTML = `
+                    <tr>
+                        <td colspan="4" class="text-center py-4 text-danger-emphasis">ไม่สามารถเชื่อมต่อฐานข้อมูลได้ (กรุณาเปิด MAMP MySQL)</td>
+                    </tr>
+                `;
+            }
+        }
+
+        // Handle Form Submission via AJAX (HTTP Request/Response)
+        function setupFormSubmit() {
+            const contactForm = document.getElementById('contactForm');
+            if (!contactForm) return;
+
+            contactForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+
+                const formStatus = document.getElementById('formStatus');
+                const submitBtn = contactForm.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.innerHTML;
+
+                // Disable button and show spinner
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>กำลังส่งข้อความ...';
+
+                // Display loading status
+                formStatus.style.display = 'block';
+                formStatus.className = 'mt-3 text-center text-info-emphasis';
+                formStatus.style.background = 'rgba(13, 202, 240, 0.1)';
+                formStatus.innerText = 'กำลังส่งข้อมูลไปยังฐานข้อมูล (MAMP)...';
+
+                const formData = {
+                    name: document.getElementById('contactName').value.trim(),
+                    email: document.getElementById('contactEmail').value.trim(),
+                    subject: document.getElementById('contactSubject').value.trim(),
+                    message: document.getElementById('contactMessage').value.trim()
+                };
+
+                try {
+                    const response = await fetch('process.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formData)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok && result.status === 'success') {
+                        // Success alert
+                        formStatus.className = 'mt-3 text-center text-success-emphasis fw-bold';
+                        formStatus.style.background = 'rgba(25, 135, 84, 0.1)';
+                        formStatus.innerHTML = `<i class="bi bi-check-circle-fill me-1"></i> ${result.message}`;
+                        contactForm.reset();
+
+                        // Refresh the message board dynamically
+                        fetchMessages();
+
+                        // Hide success message after 5 seconds
+                        setTimeout(() => {
+                            formStatus.style.display = 'none';
+                        }, 5000);
+                    } else {
+                        // Error alert from PHP server
+                        formStatus.className = 'mt-3 text-center text-danger-emphasis fw-bold';
+                        formStatus.style.background = 'rgba(220, 53, 69, 0.1)';
+                        formStatus.innerHTML = `<i class="bi bi-exclamation-triangle-fill me-1"></i> ${result.message || 'เกิดข้อผิดพลาดฝั่งเซิร์ฟเวอร์'}`;
+                    }
+                } catch (error) {
+                    console.error('Error submitting form:', error);
+                    formStatus.className = 'mt-3 text-center text-danger-emphasis fw-bold';
+                    formStatus.style.background = 'rgba(220, 53, 69, 0.1)';
+                    formStatus.innerHTML = '<i class="bi bi-exclamation-triangle-fill me-1"></i> ไม่สามารถเชื่อมต่อกับ PHP Script ได้ (กรุณารัน Web Server บน MAMP)';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                }
+            });
+        }
     </script>
 </body>
 

@@ -181,6 +181,57 @@
             box-shadow: 0 12px 30px rgba(99, 102, 241, 0.15);
         }
 
+        .hover-zoom:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        /* Custom Lightbox Overlay */
+        .custom-lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            cursor: zoom-out;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .custom-lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .custom-lightbox img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .custom-lightbox.active img {
+            transform: scale(1);
+        }
+
+        .custom-lightbox .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         /* Tech Badge style */
         .tech-badge {
             background: rgba(255, 255, 255, 0.05);
@@ -236,6 +287,88 @@
             height: 12px;
             border-radius: 50%;
             background: var(--gradient-main);
+        }
+
+        /* Certificate Section */
+        .cert-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 16px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .cert-img-wrap {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .cert-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .cert-card:hover .cert-img-wrap img {
+            transform: scale(1.08);
+        }
+
+        .cert-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(11, 15, 25, 0.85) 0%, transparent 60%);
+            display: flex;
+            align-items: flex-end;
+            padding: 14px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .cert-card:hover .cert-overlay {
+            opacity: 1;
+        }
+
+        .cert-zoom-icon {
+            color: #fff;
+            font-size: 1.6rem;
+        }
+
+        .cert-body {
+            padding: 16px 18px 18px;
+        }
+
+        .cert-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 4px 10px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        .cert-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(6, 182, 212, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: rgba(99, 102, 241, 0.5);
         }
 
         /* Contact inputs custom */
@@ -297,6 +430,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#projects">ผลงาน</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#certificates">ใบ Certificate</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">ติดต่อฉัน</a>
@@ -397,13 +533,14 @@
                 <!-- Project Card 1 -->
                 <div class="col-md-4">
                     <div class="card glass-card h-100 border-0">
-                        <div class="project-img-placeholder">
-                            <i class="bi bi-laptop"></i>
-                        </div>
+                        <img src="vtuber.jpg" class="card-img-top" alt="VTuber PSRU"
+                            style="height: 200px; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;">
                         <div class="card-body p-4">
-                            <span class="badge bg-primary mb-2">Web Application</span>
-                            <h5 class="card-title fw-bold text-white">[ชื่อผลงานที่ 1]</h5>
-                            <p class="card-text text-white small mb-4">(แนะนำข้อมูลผลงานชิ้นแรกของคุณโดยย่อที่นี่)</p>
+                            <span class="badge bg-primary mb-2">Digital Community</span>
+                            <h5 class="card-title fw-bold text-white">ชนะเลิศการแข่งขันประกวด “Vtuber PSRU
+                                เพื่อเฟ้นหาสุดยอกตัวละคร”</h5>
+                            <p class="card-text text-white small mb-4">การประกวด VTuber PSRU ภายใต้โครงการชุมชนดิจิทัล
+                                เพื่อรองรับสังคมศตวรรษที่ 21</p>
                             <button class="btn btn-sm btn-outline-light rounded-pill px-3" data-bs-toggle="modal"
                                 data-bs-target="#projectModal1">รายละเอียดเพิ่มเติม</button>
                         </div>
@@ -412,32 +549,91 @@
                 <!-- Project Card 2 -->
                 <div class="col-md-4">
                     <div class="card glass-card h-100 border-0">
-                        <div class="project-img-placeholder">
-                            <i class="bi bi-phone"></i>
-                        </div>
+                        <img src="speaker.jpg" class="card-img-top" alt="VTuber PSRU Speaker"
+                            style="height: 200px; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;">
                         <div class="card-body p-4">
-                            <span class="badge bg-success mb-2">Mobile Design</span>
-                            <h5 class="card-title fw-bold text-white">[ชื่อผลงานที่ 2]</h5>
-                            <p class="card-text text-white small mb-4">(แนะนำข้อมูลผลงานชิ้นที่สองของคุณโดยย่อที่นี่)
-                            </p>
+                            <span class="badge bg-success mb-2">Speaker & Workshop</span>
+                            <h5 class="card-title fw-bold text-white">วิทยากรมอบความรู้เกี่ยวกับ Vtuber</h5>
+                            <p class="card-text text-white small mb-4">ได้รับเกียรติเป็นวิทยากรมอบความรู้เกี่ยวกับ
+                                Vtuber ให้กับสมาชิกในชมรม Vtuber PSRU</p>
                             <button class="btn btn-sm btn-outline-light rounded-pill px-3" data-bs-toggle="modal"
-                                data-bs-target="#projectModal1">รายละเอียดเพิ่มเติม</button>
+                                data-bs-target="#projectModal2">รายละเอียดเพิ่มเติม</button>
                         </div>
                     </div>
                 </div>
                 <!-- Project Card 3 -->
                 <div class="col-md-4">
                     <div class="card glass-card h-100 border-0">
-                        <div class="project-img-placeholder">
-                            <i class="bi bi-grid-1x2"></i>
-                        </div>
+                        <img src="krathong.png" class="card-img-top" alt="Loy Krathong Digital Phitsanulok"
+                            style="height: 200px; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;">
                         <div class="card-body p-4">
-                            <span class="badge bg-warning text-dark mb-2">UI/UX Prototype</span>
-                            <h5 class="card-title fw-bold text-white">[ชื่อผลงานที่ 3]</h5>
-                            <p class="card-text text-white small mb-4">(แนะนำข้อมูลผลงานชิ้นที่สามของคุณโดยย่อที่นี่)
-                            </p>
+                            <span class="badge bg-warning text-dark mb-2">Digital Art & Event</span>
+                            <h5 class="card-title fw-bold text-white">ลอยกระทงดิจิทัล พิษณุโลก 2567</h5>
+                            <p class="card-text text-white small mb-4">ออกแบบและสร้างสรรค์ผลงานกระทงดิจิทัล
+                                เพื่อร่วมสืบสานประเพณีในรูปแบบใหม่ที่เป็นมิตรต่อสิ่งแวดล้อม</p>
                             <button class="btn btn-sm btn-outline-light rounded-pill px-3" data-bs-toggle="modal"
-                                data-bs-target="#projectModal1">รายละเอียดเพิ่มเติม</button>
+                                data-bs-target="#projectModal3">รายละเอียดเพิ่มเติม</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 4 -->
+                <div class="col-md-4">
+                    <div class="card glass-card h-100 border-0">
+                        <img src="startup.jpg" class="card-img-top" alt="New Regional Startups 2024"
+                            style="height: 200px; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;">
+                        <div class="card-body p-4">
+                            <span class="badge bg-danger mb-2">Startup Workshop</span>
+                            <h5 class="card-title fw-bold text-white">New Regional Startups 2024</h5>
+                            <p class="card-text text-white small mb-4">กิจกรรม Workshop 30 ชั่วโมง
+                                พัฒนาศักยภาพนักศึกษาที่มีแนวคิดธุรกิจสู่การเป็นผู้ประกอบการใหม่</p>
+                            <button class="btn btn-sm btn-outline-light rounded-pill px-3" data-bs-toggle="modal"
+                                data-bs-target="#projectModal4">รายละเอียดเพิ่มเติม</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 5 -->
+                <div class="col-md-4">
+                    <div class="card glass-card h-100 border-0">
+                        <img src="r2m.jpg" class="card-img-top" alt="Research to Market R2M 2024"
+                            style="height: 200px; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;">
+                        <div class="card-body p-4">
+                            <span class="badge bg-info text-dark mb-2">Business & Pitching</span>
+                            <h5 class="card-title fw-bold text-white">Research to Market : R2M 2024</h5>
+                            <p class="card-text text-white small mb-4">กิจกรรม R2M Pitching Day
+                                เพื่อคัดเลือกแผนธุรกิจนวัตกรรมระดับมหาวิทยาลัยและคว้ารางวัลชมเชย</p>
+                            <button class="btn btn-sm btn-outline-light rounded-pill px-3" data-bs-toggle="modal"
+                                data-bs-target="#projectModal5">รายละเอียดเพิ่มเติม</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 6 -->
+                <div class="col-md-4">
+                    <div class="card glass-card h-100 border-0">
+                        <img src="elp.jpg" class="card-img-top" alt="Experiential Learning Program ELP"
+                            style="height: 200px; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;">
+                        <div class="card-body p-4">
+                            <span class="badge bg-primary mb-2">Global Opportunity</span>
+                            <h5 class="card-title fw-bold text-white">Experiential Learning Program (ELP)</h5>
+                            <p class="card-text text-white small mb-4">
+                                โครงการเรียนรู้จากประสบการณ์เพื่อเร่งการเป็นผู้ประกอบการนวัตกรรมระดับโลก
+                                ร่วมกับพันธมิตรระหว่างประเทศ</p>
+                            <button class="btn btn-sm btn-outline-light rounded-pill px-3" data-bs-toggle="modal"
+                                data-bs-target="#projectModal6">รายละเอียดเพิ่มเติม</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Project Card 7 -->
+                <div class="col-md-4">
+                    <div class="card glass-card h-100 border-0">
+                        <img src="concert.jpg" class="card-img-top" alt="VTuber PSRU Concert"
+                            style="height: 200px; object-fit: cover; border-top-left-radius: 16px; border-top-right-radius: 16px;">
+                        <div class="card-body p-4">
+                            <span class="badge bg-danger mb-2">Event & Entertainment</span>
+                            <h5 class="card-title fw-bold text-white">จัดงานคอนเสิร์ตชมรม Vtuber PSRU</h5>
+                            <p class="card-text text-white small mb-4">จัดและดำเนินงานกิจกรรมคอนเสิร์ตให้กับชมรม Vtuber
+                                PSRU เพื่อนำเสนอความสามารถในรูปแบบสื่อผสมผสาน</p>
+                            <button class="btn btn-sm btn-outline-light rounded-pill px-3" data-bs-toggle="modal"
+                                data-bs-target="#projectModal7">รายละเอียดเพิ่มเติม</button>
                         </div>
                     </div>
                 </div>
@@ -458,24 +654,25 @@
                 <div class="modal-body p-4">
                     <div class="row g-4">
                         <div class="col-md-6">
-                            <div class="project-img-placeholder rounded" style="height: 250px;">
-                                <i class="bi bi-images fs-1"></i>
-                            </div>
+                            <img src="vtuber.jpg" class="img-fluid rounded hover-zoom" alt="VTuber PSRU"
+                                style="height: 250px; width: 100%; object-fit: cover; transition: transform 0.2s ease-in-out; cursor: pointer;"
+                                onclick="openLightbox('vtuber.jpg')" title="คลิกเพื่อขยายดูรูปภาพ">
                         </div>
                         <div class="col-md-6">
-                            <h4 class="fw-bold mb-3">[ชื่องานโครงงาน]</h4>
-                            <p class="text-white">ที่นี่คือส่วนสำหรับอธิบายรายละเอียดแบบเจาะลึกของชิ้นงาน
-                                ปัญหาที่พบในการพัฒนา และวิธีที่แก้ปัญหานั้นๆ</p>
+                            <h4 class="fw-bold mb-3">การประกวด VTuber PSRU</h4>
+                            <p class="text-white">เข้าร่วมการแข่งขันการประกวด “Vtuber PSRU เพื่อเฟ้นหาสุดยอดตัวละคร”
+                                ในปี 2567 โดยเป็นกิจกรรมที่จัดโดยสถาบันเทคโนโลยีดิจิทัล
+                                เพื่อส่งเสริมความสามารถด้านการแสดงออกและศิลปะ และได้รางวัลชนะเลิศในการแข่งขันในครั้งนี้
+                                โดย หัวข้อ “จันทน์แก้ว”</p>
                             <div class="mb-4">
-                                <h6 class="fw-bold text-white">เทคโนโลยีที่ใช้:</h6>
-                                <span class="badge bg-secondary">HTML</span>
-                                <span class="badge bg-secondary">Bootstrap 5</span>
-                                <span class="badge bg-secondary">Vanilla JS</span>
+                                <h6 class="fw-bold text-white">เทคโนโลยีและทักษะที่เกี่ยวข้อง:</h6>
+                                <span class="badge bg-secondary">VTuber Creation</span>
+                                <span class="badge bg-secondary">Digital Content</span>
+                                <span class="badge bg-secondary">Creator Skills</span>
                             </div>
                             <div class="d-flex gap-2">
                                 <a href="#" class="btn btn-primary btn-sm rounded-pill px-3"
-                                    style="background: var(--gradient-main); border: none;">ไปยังเว็บจริง</a>
-                                <a href="#" class="btn btn-outline-light btn-sm rounded-pill px-3">ดู Source Code</a>
+                                    style="background: var(--gradient-main); border: none;">ดูผลงานเพิ่มเติม</a>
                             </div>
                         </div>
                     </div>
@@ -483,6 +680,402 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal for Project 2 Details -->
+    <div class="modal fade" id="projectModal2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content"
+                style="background: var(--dark-bg); border: 1px solid var(--card-border); color: var(--text-light);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">ข้อมูลโครงงานโดยละเอียด</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <img src="speaker.jpg" class="img-fluid rounded hover-zoom" alt="VTuber PSRU Speaker"
+                                style="height: 250px; width: 100%; object-fit: cover; transition: transform 0.2s ease-in-out; cursor: pointer;"
+                                onclick="openLightbox('speaker.jpg')" title="คลิกเพื่อขยายดูรูปภาพ">
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="fw-bold mb-3">วิทยากรมอบความรู้เกี่ยวกับ Vtuber</h4>
+                            <p class="text-white">
+                                ได้รับเชิญเป็นวิทยากรพิเศษเพื่อถ่ายทอดองค์ความรู้และทักษะที่เกี่ยวข้องกับการเป็นครีเอเตอร์และการสร้างสรรค์ตัวละคร
+                                Vtuber ให้แก่สมาชิกในชมรม Vtuber PSRU มหาวิทยาลัยราชภัฏพิบูลสงคราม
+                                เพื่อสนับสนุนการพัฒนาทักษะด้านสื่อดิจิทัลและศิลปะสร้างสรรค์</p>
+                            <div class="mb-4">
+                                <h6 class="fw-bold text-white">หัวข้อและทักษะที่เกี่ยวข้อง:</h6>
+                                <span class="badge bg-secondary">Public Speaking</span>
+                                <span class="badge bg-secondary">Knowledge Sharing</span>
+                                <span class="badge bg-secondary">Vtuber Industry</span>
+                                <span class="badge bg-secondary">Creator Concept</span>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-primary btn-sm rounded-pill px-3"
+                                    style="background: var(--gradient-main); border: none;">ดูข้อมูลเพิ่มเติม</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Project 3 Details -->
+    <div class="modal fade" id="projectModal3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content"
+                style="background: var(--dark-bg); border: 1px solid var(--card-border); color: var(--text-light);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">ข้อมูลโครงงานโดยละเอียด</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <img src="krathong.png" class="img-fluid rounded hover-zoom"
+                                alt="Loy Krathong Digital Phitsanulok"
+                                style="height: 250px; width: 100%; object-fit: cover; transition: transform 0.2s ease-in-out; cursor: pointer;"
+                                onclick="openLightbox('krathong.png')" title="คลิกเพื่อขยายดูรูปภาพ">
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="fw-bold mb-3">ลอยกระทงดิจิทัล พิษณุโลก 2567</h4>
+                            <p class="text-white">ร่วมสร้างสรรค์ผลงานกระทงดิจิทัลในงานเทศกาล "ลอยกระทงดิจิทัล
+                                ปีแรกของพิษณุโลก ประจำปี 2567" ที่ใช้เทคโนโลยีการฉายแสง Projection Mapping
+                                แทนการใช้วัสดุจริง เพื่อลดผลกระทบต่อธรรมชาติและสืบสานประเพณีไทยในมิติใหม่ที่ยั่งยืน</p>
+                            <div class="mb-4">
+                                <h6 class="fw-bold text-white">เทคโนโลยีและแนวคิดที่เกี่ยวข้อง:</h6>
+                                <span class="badge bg-secondary">Digital Design</span>
+                                <span class="badge bg-secondary">Interactive Art</span>
+                                <span class="badge bg-secondary">Projection Mapping</span>
+                                <span class="badge bg-secondary">Eco-Friendly Event</span>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-primary btn-sm rounded-pill px-3"
+                                    style="background: var(--gradient-main); border: none;">ดูบรรยากาศงาน</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Project 4 Details -->
+    <div class="modal fade" id="projectModal4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content"
+                style="background: var(--dark-bg); border: 1px solid var(--card-border); color: var(--text-light);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">ข้อมูลโครงงานโดยละเอียด</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <img src="startup.jpg" class="img-fluid rounded hover-zoom" alt="New Regional Startups 2024"
+                                style="height: 250px; width: 100%; object-fit: cover; transition: transform 0.2s ease-in-out; cursor: pointer;"
+                                onclick="openLightbox('startup.jpg')" title="คลิกเพื่อขยายดูรูปภาพ">
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="fw-bold mb-3">New Regional Startups 2024</h4>
+                            <p class="text-white">กิจกรรม Workshop จำนวน 30 ชั่วโมง
+                                ดำเนินการจัดอบรมโดยอุทยานวิทยาศาสตร์ภาคเหนือ มหาวิทยาลัยราชภัฏพิบูลสงคราม
+                                ซึ่งเป็นเวทีสำหรับนักศึกษาที่มีแนวคิดทางธุรกิจและมุ่งหวังที่จะพัฒนาศักยภาพการเป็นผู้ประกอบการใหม่
+                            </p>
+                            <div class="mb-4">
+                                <h6 class="fw-bold text-white">หัวข้อและทักษะที่เกี่ยวข้อง:</h6>
+                                <span class="badge bg-secondary">Startup Workshop</span>
+                                <span class="badge bg-secondary">Business Development</span>
+                                <span class="badge bg-secondary">Entrepreneurship</span>
+                                <span class="badge bg-secondary">Product Concept</span>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-primary btn-sm rounded-pill px-3"
+                                    style="background: var(--gradient-main); border: none;">ดูรายละเอียดเพิ่มเติม</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Project 5 Details -->
+    <div class="modal fade" id="projectModal5" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content"
+                style="background: var(--dark-bg); border: 1px solid var(--card-border); color: var(--text-light);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">ข้อมูลโครงงานโดยละเอียด</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <img src="r2m.jpg" class="img-fluid rounded hover-zoom" alt="Research to Market R2M 2024"
+                                style="height: 250px; width: 100%; object-fit: cover; transition: transform 0.2s ease-in-out; cursor: pointer;"
+                                onclick="openLightbox('r2m.jpg')" title="คลิกเพื่อขยายดูรูปภาพ">
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="fw-bold mb-3">Research to Market : R2M 2024</h4>
+                            <p class="text-white">เข้าร่วมประกวดในกิจกรรม R2M Pitching Day (Research to Market)
+                                เพื่อเฟ้นหาสุดยอดแผนธุรกิจนวัตกรรมและคัดเลือกตัวแทนของมหาวิทยาลัยราชภัฏพิบูลสงคราม
+                                โดยทีมของเราสามารถจัดทำแผนความเป็นไปได้ทางการตลาดและคว้ารางวัลชมเชยมาได้สำเร็จ</p>
+                            <div class="mb-4">
+                                <h6 class="fw-bold text-white">หัวข้อและทักษะที่เกี่ยวข้อง:</h6>
+                                <span class="badge bg-secondary">Business Planning</span>
+                                <span class="badge bg-secondary">Market Research</span>
+                                <span class="badge bg-secondary">Innovation Pitching</span>
+                                <span class="badge bg-secondary">Teamwork</span>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-primary btn-sm rounded-pill px-3"
+                                    style="background: var(--gradient-main); border: none;">ดูรายละเอียดเพิ่มเติม</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Project 6 Details -->
+    <div class="modal fade" id="projectModal6" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content"
+                style="background: var(--dark-bg); border: 1px solid var(--card-border); color: var(--text-light);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">ข้อมูลโครงงานโดยละเอียด</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <img src="elp.jpg" class="img-fluid rounded hover-zoom"
+                                alt="Experiential Learning Program ELP"
+                                style="height: 250px; width: 100%; object-fit: cover; transition: transform 0.2s ease-in-out; cursor: pointer;"
+                                onclick="openLightbox('elp.jpg')" title="คลิกเพื่อขยายดูรูปภาพ">
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="fw-bold mb-3">Experiential Learning Program (ELP)</h4>
+                            <p class="text-white">โครงการอบรมเชิงปฏิบัติการและการนำเสนอแผนงาน (Pitching) ระดับภูมิภาค
+                                ภายใต้ Experiential Learning Program (ELP)
+                                เพื่อเปิดโอกาสการเรียนรู้ระดับโลกสำหรับผู้ประกอบการนวัตกรรมรุ่นใหม่ในอนาคต
+                                พัฒนาร่วมกับพันธมิตรระหว่างประเทศเพื่อเร่งการเติบโตของธุรกิจเทคโนโลยี</p>
+                            <div class="mb-4">
+                                <h6 class="fw-bold text-white">หัวข้อและทักษะที่เกี่ยวข้อง:</h6>
+                                <span class="badge bg-secondary">Global Innovation</span>
+                                <span class="badge bg-secondary">Pitching Skills</span>
+                                <span class="badge bg-secondary">Startup Ecosystem</span>
+                                <span class="badge bg-secondary">Experiential Learning</span>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-primary btn-sm rounded-pill px-3"
+                                    style="background: var(--gradient-main); border: none;">ดูบรรยากาศโครงการ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Project 7 Details -->
+    <div class="modal fade" id="projectModal7" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content"
+                style="background: var(--dark-bg); border: 1px solid var(--card-border); color: var(--text-light);">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title fw-bold">ข้อมูลโครงงานโดยละเอียด</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <img src="concert.jpg" class="img-fluid rounded hover-zoom" alt="VTuber PSRU Concert"
+                                style="height: 250px; width: 100%; object-fit: cover; transition: transform 0.2s ease-in-out; cursor: pointer;"
+                                onclick="openLightbox('concert.jpg')" title="คลิกเพื่อขยายดูรูปภาพ">
+                        </div>
+                        <div class="col-md-6">
+                            <h4 class="fw-bold mb-3">จัดงานคอนเสิร์ตชมรม Vtuber PSRU</h4>
+                            <p class="text-white">ร่วมวางแผน ออกแบบ
+                                และดำเนินงานโปรดักชันการจัดกิจกรรมคอนเสิร์ตสำหรับชมรม Vtuber PSRU
+                                มหาวิทยาลัยราชภัฏพิบูลสงคราม
+                                เพื่อแสดงความสามารถและความคิดสร้างสรรค์ในฐานะครีเอเตอร์และสร้างชุมชนผู้สนใจ Vtuber
+                                ในรั้วมหาวิทยาลัย</p>
+                            <div class="mb-4">
+                                <h6 class="fw-bold text-white">หัวข้อและทักษะที่เกี่ยวข้อง:</h6>
+                                <span class="badge bg-secondary">Event Organizing</span>
+                                <span class="badge bg-secondary">Production Management</span>
+                                <span class="badge bg-secondary">Vtuber Culture</span>
+                                <span class="badge bg-secondary">Teamwork</span>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <a href="#" class="btn btn-primary btn-sm rounded-pill px-3"
+                                    style="background: var(--gradient-main); border: none;">ดูภาพบรรยากาศงาน</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom Fullscreen Image Viewer (Lightbox) -->
+    <div id="customLightbox" class="custom-lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img id="customLightboxImg" src="" alt="Fullscreen Preview" onclick="event.stopPropagation()">
+    </div>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-5" style="margin-top: 80px;">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold display-5">ใบ Certificate</h2>
+                <div class="mx-auto"
+                    style="width: 60px; height: 4px; background: var(--gradient-main); border-radius: 2px; margin-top: 12px;">
+                </div>
+                <p class="text-white mt-3">ใบรับรองและประกาศนียบัตรที่ได้รับจากการเข้าร่วมกิจกรรม อบรม
+                    และการแข่งขันต่างๆ</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Certificate Card 1 -->
+                <div class="col-md-4">
+                    <div class="cert-card" onclick="openLightbox('cert1.jpg')" title="คลิกเพื่อขยายดูใบ Certificate">
+                        <div class="cert-img-wrap">
+                            <img src="cert1.jpg" alt="MOOC Basic Cybersecurity Certificate"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="cert-placeholder" style="display:none;"><i class="bi bi-patch-check-fill"></i>
+                            </div>
+                            <div class="cert-overlay">
+                                <span class="cert-zoom-icon"><i class="bi bi-zoom-in"></i> ขยายดู</span>
+                            </div>
+                        </div>
+                        <div class="cert-body">
+                            <span class="cert-tag"
+                                style="background: rgba(6,182,212,0.2); color: #22d3ee;">Cybersecurity</span>
+                            <h6 class="fw-bold text-white mb-1">Basic Cybersecurity — MOOC</h6>
+                            <p class="text-white small mb-0">ใบรับรองการสำเร็จหลักสูตร Basic Cybersecurity จาก NCSA
+                                Thailand | 30/01/2026</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificate Card 2 -->
+                <div class="col-md-4">
+                    <div class="cert-card" onclick="openLightbox('cert2.jpg')" title="คลิกเพื่อขยายดูใบ Certificate">
+                        <div class="cert-img-wrap">
+                            <img src="cert2.jpg" alt="TDGA Data Visualization Certificate"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="cert-placeholder" style="display:none;"><i class="bi bi-patch-check-fill"></i>
+                            </div>
+                            <div class="cert-overlay">
+                                <span class="cert-zoom-icon"><i class="bi bi-zoom-in"></i> ขยายดู</span>
+                            </div>
+                        </div>
+                        <div class="cert-body">
+                            <span class="cert-tag" style="background: rgba(99,102,241,0.2); color: #818cf8;">Data</span>
+                            <h6 class="fw-bold text-white mb-1">Data Visualization & Dashboard Design — TDGA</h6>
+                            <p class="text-white small mb-0">หลักการสร้างภาพข้อมูลและออกแบบ Dashboard | DGA × TDGA |
+                                13/03/2569</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificate Card 3 -->
+                <div class="col-md-4">
+                    <div class="cert-card" onclick="openLightbox('cert3.jpg')" title="คลิกเพื่อขยายดูใบ Certificate">
+                        <div class="cert-img-wrap">
+                            <img src="cert3.jpg" alt="Cisco Python Essentials 1 Certificate"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="cert-placeholder" style="display:none;"><i class="bi bi-patch-check-fill"></i>
+                            </div>
+                            <div class="cert-overlay">
+                                <span class="cert-zoom-icon"><i class="bi bi-zoom-in"></i> ขยายดู</span>
+                            </div>
+                        </div>
+                        <div class="cert-body">
+                            <span class="cert-tag"
+                                style="background: rgba(6,182,212,0.2); color: #22d3ee;">Python</span>
+                            <h6 class="fw-bold text-white mb-1">Python Essentials 1 — Cisco Networking Academy</h6>
+                            <p class="text-white small mb-0">Statement of Achievement | Cisco × OpenEDG Python Institute
+                                | Mar 11, 2026</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificate Card 4 -->
+                <div class="col-md-4">
+                    <div class="cert-card" onclick="openLightbox('cert4.jpg')" title="คลิกเพื่อขยายดูใบ Certificate">
+                        <div class="cert-img-wrap">
+                            <img src="cert4.jpg" alt="UX/UI Design Certificate"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="cert-placeholder" style="display:none;"><i class="bi bi-patch-check-fill"></i>
+                            </div>
+                            <div class="cert-overlay">
+                                <span class="cert-zoom-icon"><i class="bi bi-zoom-in"></i> ขยายดู</span>
+                            </div>
+                        </div>
+                        <div class="cert-body">
+                            <span class="cert-tag"
+                                style="background: rgba(168,85,247,0.2); color: #c084fc;">UX/UI</span>
+                            <h6 class="fw-bold text-white mb-1">UX & UI Design — กรมพัฒนาฝีมือแรงงาน</h6>
+                            <p class="text-white small mb-0">User Experience and User Interface Design | DDF × ATSI |
+                                10/03/2568</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificate Card 5 -->
+                <div class="col-md-4">
+                    <div class="cert-card" onclick="openLightbox('cert5.jpg')" title="คลิกเพื่อขยายดูใบ Certificate">
+                        <div class="cert-img-wrap">
+                            <img src="cert5.jpg" alt="Loy Krathong Digital Certificate"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="cert-placeholder" style="display:none;"><i class="bi bi-patch-check-fill"></i>
+                            </div>
+                            <div class="cert-overlay">
+                                <span class="cert-zoom-icon"><i class="bi bi-zoom-in"></i> ขยายดู</span>
+                            </div>
+                        </div>
+                        <div class="cert-body">
+                            <span class="cert-tag"
+                                style="background: rgba(16,185,129,0.2); color: #34d399;">MULTIMEDIA</span>
+                            <h6 class="fw-bold text-white mb-1">การประกวด “VTuber PSRU” เพื่อเฟ้นหาสุดยอดผลงานครีเอเตอร์
+                            </h6>
+                            <p class="text-white small mb-0">รางวัลชนะเลิศการประกวด “VTuber PSRU” เฟ้นหาสุดยอดผลงาน
+                                หลักสูตรอบรมเชิงปฏิบัติการสร้างสรรค์ครีเอเตอร์ "ก้าวแรกสู่เส้นทาง VTuber PSRU"</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Certificate Card 6 -->
+                <div class="col-md-4">
+                    <div class="cert-card" onclick="openLightbox('cert6.jpg')" title="คลิกเพื่อขยายดูใบ Certificate">
+                        <div class="cert-img-wrap">
+                            <img src="cert6.jpg" alt="PSRU Vtuber Club Certificate"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="cert-placeholder" style="display:none;"><i class="bi bi-patch-check-fill"></i>
+                            </div>
+                            <div class="cert-overlay">
+                                <span class="cert-zoom-icon"><i class="bi bi-zoom-in"></i> ขยายดู</span>
+                            </div>
+                        </div>
+                        <div class="cert-body">
+                            <span class="cert-tag" style="background: rgba(245,158,11,0.2); color: #fbbf24;">LEADERSHIP
+                                & MANAGEMENT</span>
+                            <h6 class="fw-bold text-white mb-1">เกียรติบัตร ประธานชมรม Vtuber PSRU</h6>
+                            <p class="text-white small mb-0">เชิดชูเกียรติคุณ นักศึกษาผู้ปฏิบัติงานองค์การนักศึกษา |
+                                ม.ราชภัฏพิบูลสงคราม | 15/03/2569</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="py-5" style="margin-top: 80px;">
@@ -616,6 +1209,31 @@
             // Setup AJAX submit handler
             setupFormSubmit();
         });
+
+        // Custom Lightbox Functions
+        function openLightbox(imgSrc) {
+            const lightbox = document.getElementById('customLightbox');
+            const lightboxImg = document.getElementById('customLightboxImg');
+            if (lightbox && lightboxImg) {
+                lightboxImg.src = imgSrc;
+                lightbox.style.display = 'flex';
+                setTimeout(() => {
+                    lightbox.classList.add('active');
+                }, 10);
+            }
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('customLightbox');
+            if (lightbox) {
+                lightbox.classList.remove('active');
+                setTimeout(() => {
+                    if (!lightbox.classList.contains('active')) {
+                        lightbox.style.display = 'none';
+                    }
+                }, 300); // matches the css opacity transition
+            }
+        }
 
         // Helper to escape HTML characters (XSS Prevention)
         function escapeHtml(text) {

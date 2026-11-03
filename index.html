@@ -1441,11 +1441,11 @@
                     minWidth: 200.00,
                     scale: 1.00,
                     scaleMobile: 1.00,
-                    color: 0x6366f1,             /* Indigo node lines */
-                    backgroundColor: isDark ? 0x0b0f19 : 0xf8fafc, /* White theme: 0xf8fafc, Dark: 0x0b0f19 */
-                    points: 10.00,               /* Kept moderate for performance */
-                    maxDistance: 20.00,
-                    spacing: 16.00
+                    color: isDark ? 0x6366f1 : 0xc7d2fe,   /* Dark: Indigo, Light: Indigo-200 (จาง) */
+                    backgroundColor: isDark ? 0x0b0f19 : 0xf8fafc,
+                    points: isDark ? 10.00 : 7.00,          /* Light theme: จุดน้อยลง → เส้นน้อยลง */
+                    maxDistance: isDark ? 20.00 : 15.00,    /* Light theme: เส้นสั้นลง */
+                    spacing: isDark ? 16.00 : 20.00         /* Light theme: ระยะห่างมากขึ้น → โปร่งขึ้น */
                 });
             }
         }

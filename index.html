@@ -720,6 +720,26 @@
             </div>
 
             <div class="row g-4">
+                <!-- Project Card: FaceQRity (Featured #1) -->
+                <div class="col-md-4">
+                    <div class="card glass-card h-100 border-0">
+                        <img src="faceqrity-qrscan.png" class="card-img-top" alt="FaceQRity Smart Attendance"
+                            style="height: 200px; object-fit: cover; object-position: top; border-top-left-radius: 16px; border-top-right-radius: 16px; cursor: pointer;"
+                            onclick="openLightbox('faceqrity-qrscan.png')" title="คลิกเพื่อขยายดูรูปภาพ">
+                        <div class="card-body p-4">
+                            <span class="badge mb-2"
+                                style="background:linear-gradient(135deg,#059669,#0891b2);color:white;">AI & Web
+                                App</span>
+                            <h5 class="card-title fw-bold text-adaptive-heading">FaceQRity — ระบบเช็คชื่อด้วย AI
+                                สแกนใบหน้า + QR Code</h5>
+                            <p class="card-text text-adaptive-muted small mb-4">
+                                ระบบตรวจสอบตัวตนและเช็คชื่อเข้าเรียนอัตโนมัติด้วย AI ตรวจจับใบหน้า (MediaPipe +
+                                DeepFace) และ QR Code แบบ Dynamic หมดอายุ 60 วินาที</p>
+                            <button class="btn btn-sm btn-outline-success rounded-pill px-3" data-bs-toggle="modal"
+                                data-bs-target="#projectModal8">รายละเอียดเพิ่มเติม</button>
+                        </div>
+                    </div>
+                </div>
                 <!-- Project Card 1 -->
                 <div class="col-md-4">
                     <div class="card glass-card h-100 border-0">
@@ -812,26 +832,6 @@
                                 ร่วมกับพันธมิตรระหว่างประเทศ</p>
                             <button class="btn btn-sm btn-outline-primary rounded-pill px-3" data-bs-toggle="modal"
                                 data-bs-target="#projectModal6">รายละเอียดเพิ่มเติม</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Project Card 8: FaceQRity -->
-                <div class="col-md-4">
-                    <div class="card glass-card h-100 border-0">
-                        <img src="faceqrity-qrscan.png" class="card-img-top" alt="FaceQRity Smart Attendance"
-                            style="height: 200px; object-fit: cover; object-position: top; border-top-left-radius: 16px; border-top-right-radius: 16px; cursor: pointer;"
-                            onclick="openLightbox('faceqrity-qrscan.png')" title="คลิกเพื่อขยายดูรูปภาพ">
-                        <div class="card-body p-4">
-                            <span class="badge mb-2"
-                                style="background:linear-gradient(135deg,#059669,#0891b2);color:white;">AI & Web
-                                App</span>
-                            <h5 class="card-title fw-bold text-adaptive-heading">FaceQRity — ระบบเช็คชื่อด้วย AI
-                                สแกนใบหน้า + QR Code</h5>
-                            <p class="card-text text-adaptive-muted small mb-4">
-                                ระบบตรวจสอบตัวตนและเช็คชื่อเข้าเรียนอัตโนมัติด้วย AI ตรวจจับใบหน้า (MediaPipe +
-                                DeepFace) และ QR Code แบบ Dynamic หมดอายุ 60 วินาที</p>
-                            <button class="btn btn-sm btn-outline-success rounded-pill px-3" data-bs-toggle="modal"
-                                data-bs-target="#projectModal8">รายละเอียดเพิ่มเติม</button>
                         </div>
                     </div>
                 </div>
@@ -1137,7 +1137,8 @@
             <div class="modal-content">
                 <div class="modal-header border-0">
                     <h5 class="modal-title fw-bold text-adaptive-heading">
-                        <i class="bi bi-person-bounding-box me-2 text-success"></i>FaceQRity — Smart Attendance & AI Verification
+                        <i class="bi bi-person-bounding-box me-2 text-success"></i>FaceQRity — Smart Attendance & AI
+                        Verification
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -1145,8 +1146,8 @@
                     <!-- Screenshot carousel with real screenshots -->
                     <div id="faceqrCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
                         <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#faceqrCarousel" data-bs-slide-to="0"
-                                class="active" aria-current="true"></button>
+                            <button type="button" data-bs-target="#faceqrCarousel" data-bs-slide-to="0" class="active"
+                                aria-current="true"></button>
                             <button type="button" data-bs-target="#faceqrCarousel" data-bs-slide-to="1"></button>
                             <button type="button" data-bs-target="#faceqrCarousel" data-bs-slide-to="2"></button>
                             <button type="button" data-bs-target="#faceqrCarousel" data-bs-slide-to="3"></button>
@@ -1154,38 +1155,50 @@
                         <div class="carousel-inner rounded-3 overflow-hidden border" style="background:#0b0f19;">
                             <!-- Slide 1: QR & Face Scan -->
                             <div class="carousel-item active">
-                                <img src="faceqrity-qrscan.png" class="d-block w-100 hover-zoom" alt="FaceQRity Dynamic QR & Face Scan"
+                                <img src="faceqrity-qrscan.png" class="d-block w-100 hover-zoom"
+                                    alt="FaceQRity Dynamic QR & Face Scan"
                                     style="max-height: 440px; object-fit: contain; background: #0b0f19; cursor: pointer; transition: transform 0.2s ease-in-out;"
                                     onclick="openLightbox('faceqrity-qrscan.png')" title="คลิกเพื่อขยายดูรูปภาพ">
-                                <div class="carousel-caption d-none d-md-block" style="background: rgba(15, 23, 42, 0.85); border-radius: 8px; padding: 6px 16px; bottom: 12px; backdrop-filter: blur(8px);">
-                                    <small class="fw-semibold text-white">📱 โหมดสแกน QR & ใบหน้า: Dynamic QR Code หมุนเวียนหมดอายุทุก 60 วินาที + Hands-Free Kiosk Mode</small>
+                                <div class="carousel-caption d-none d-md-block"
+                                    style="background: rgba(15, 23, 42, 0.85); border-radius: 8px; padding: 6px 16px; bottom: 12px; backdrop-filter: blur(8px);">
+                                    <small class="fw-semibold text-white">📱 โหมดสแกน QR & ใบหน้า: Dynamic QR Code
+                                        หมุนเวียนหมดอายุทุก 60 วินาที + Hands-Free Kiosk Mode</small>
                                 </div>
                             </div>
                             <!-- Slide 2: Realtime Skeleton & Gait -->
                             <div class="carousel-item">
-                                <img src="faceqrity-gait.png" class="d-block w-100 hover-zoom" alt="FaceQRity AI Skeleton & Gait Detection"
+                                <img src="faceqrity-gait.png" class="d-block w-100 hover-zoom"
+                                    alt="FaceQRity AI Skeleton & Gait Detection"
                                     style="max-height: 440px; object-fit: contain; background: #0b0f19; cursor: pointer; transition: transform 0.2s ease-in-out;"
                                     onclick="openLightbox('faceqrity-gait.png')" title="คลิกเพื่อขยายดูรูปภาพ">
-                                <div class="carousel-caption d-none d-md-block" style="background: rgba(15, 23, 42, 0.85); border-radius: 8px; padding: 6px 16px; bottom: 12px; backdrop-filter: blur(8px);">
-                                    <small class="fw-semibold text-white">🤖 ตรวจจับโครงกระดูก 33 จุด (MediaPipe) + ระบุตัวตน Realtime (DeepFace AI) พร้อม 5D Gait Metrics</small>
+                                <div class="carousel-caption d-none d-md-block"
+                                    style="background: rgba(15, 23, 42, 0.85); border-radius: 8px; padding: 6px 16px; bottom: 12px; backdrop-filter: blur(8px);">
+                                    <small class="fw-semibold text-white">🤖 ตรวจจับโครงกระดูก 33 จุด (MediaPipe) +
+                                        ระบุตัวตน Realtime (DeepFace AI) พร้อม 5D Gait Metrics</small>
                                 </div>
                             </div>
                             <!-- Slide 3: Report & Analytics -->
                             <div class="carousel-item">
-                                <img src="faceqrity-report.png" class="d-block w-100 hover-zoom" alt="FaceQRity Attendance Report & Analytics"
+                                <img src="faceqrity-report.png" class="d-block w-100 hover-zoom"
+                                    alt="FaceQRity Attendance Report & Analytics"
                                     style="max-height: 440px; object-fit: contain; background: #0b0f19; cursor: pointer; transition: transform 0.2s ease-in-out;"
                                     onclick="openLightbox('faceqrity-report.png')" title="คลิกเพื่อขยายดูรูปภาพ">
-                                <div class="carousel-caption d-none d-md-block" style="background: rgba(15, 23, 42, 0.85); border-radius: 8px; padding: 6px 16px; bottom: 12px; backdrop-filter: blur(8px);">
-                                    <small class="fw-semibold text-white">📊 แดชบอร์ด Attendance Report & Analytics: สรุปสถิติ ตรงเวลา/มาสาย/ขาด และส่งออก Excel/CSV</small>
+                                <div class="carousel-caption d-none d-md-block"
+                                    style="background: rgba(15, 23, 42, 0.85); border-radius: 8px; padding: 6px 16px; bottom: 12px; backdrop-filter: blur(8px);">
+                                    <small class="fw-semibold text-white">📊 แดชบอร์ด Attendance Report & Analytics:
+                                        สรุปสถิติ ตรงเวลา/มาสาย/ขาด และส่งออก Excel/CSV</small>
                                 </div>
                             </div>
                             <!-- Slide 4: Walk-by Log -->
                             <div class="carousel-item">
-                                <img src="faceqrity-walklog.png" class="d-block w-100 hover-zoom" alt="FaceQRity Walk-by Scan Log"
+                                <img src="faceqrity-walklog.png" class="d-block w-100 hover-zoom"
+                                    alt="FaceQRity Walk-by Scan Log"
                                     style="max-height: 440px; object-fit: contain; background: #0b0f19; cursor: pointer; transition: transform 0.2s ease-in-out;"
                                     onclick="openLightbox('faceqrity-walklog.png')" title="คลิกเพื่อขยายดูรูปภาพ">
-                                <div class="carousel-caption d-none d-md-block" style="background: rgba(15, 23, 42, 0.85); border-radius: 8px; padding: 6px 16px; bottom: 12px; backdrop-filter: blur(8px);">
-                                    <small class="fw-semibold text-white">🚶 รายงานบันทึกประวัติการเดินผ่าน (Walk-by Scan Log): แสดงเวลา ชื่อ รหัส ค่าความมั่นใจ AI (%) และสถานะ</small>
+                                <div class="carousel-caption d-none d-md-block"
+                                    style="background: rgba(15, 23, 42, 0.85); border-radius: 8px; padding: 6px 16px; bottom: 12px; backdrop-filter: blur(8px);">
+                                    <small class="fw-semibold text-white">🚶 รายงานบันทึกประวัติการเดินผ่าน (Walk-by
+                                        Scan Log): แสดงเวลา ชื่อ รหัส ค่าความมั่นใจ AI (%) และสถานะ</small>
                                 </div>
                             </div>
                         </div>
@@ -1201,27 +1214,37 @@
 
                     <div class="row g-4">
                         <div class="col-md-7">
-                            <h4 class="fw-bold mb-3 text-adaptive-heading">FaceQRity — Smart Attendance & AI Verification</h4>
+                            <h4 class="fw-bold mb-3 text-adaptive-heading">FaceQRity — Smart Attendance & AI
+                                Verification</h4>
                             <p class="text-adaptive-body mb-3">
                                 โครงงานระบบเช็คชื่อเข้าชั้นเรียนและตรวจสอบตัวตนอัจฉริยะ (Dual-Mode Authentication)
                                 ที่ผสานสองเทคโนโลยีเข้าด้วยกันเพื่อแก้ปัญหาการเช็คชื่อแทนกันและการทุจริต:
                             </p>
                             <ul class="text-adaptive-body ps-3 mb-3">
                                 <li>
-                                    <strong>Dynamic QR Code 60 วินาที:</strong> QR Code สร้างขึ้นเฉพาะบุคคลและผลัดเปลี่ยนอัตโนมัติทุกๆ 60 วินาที (Time-based Rolling QR) ป้องกันการบันทึกภาพหน้าจอส่งต่อให้เพื่อน
+                                    <strong>Dynamic QR Code 60 วินาที:</strong> QR Code
+                                    สร้างขึ้นเฉพาะบุคคลและผลัดเปลี่ยนอัตโนมัติทุกๆ 60 วินาที (Time-based Rolling QR)
+                                    ป้องกันการบันทึกภาพหน้าจอส่งต่อให้เพื่อน
                                 </li>
                                 <li>
-                                    <strong>AI สแกนใบหน้า Realtime:</strong> ยืนยันตัวตนบุคคลผ่านกล้องเว็บแคม/CCTV ด้วย <em>DeepFace (VGG-Face / RetinaFace)</em> จับคู่โครงหน้าแบบเรียลไทม์ พร้อมตรวจจับโครงกระดูก 33 จุดด้วย <em>MediaPipe</em>
+                                    <strong>AI สแกนใบหน้า Realtime:</strong> ยืนยันตัวตนบุคคลผ่านกล้องเว็บแคม/CCTV ด้วย
+                                    <em>DeepFace (VGG-Face / RetinaFace)</em> จับคู่โครงหน้าแบบเรียลไทม์
+                                    พร้อมตรวจจับโครงกระดูก 33 จุดด้วย <em>MediaPipe</em>
                                 </li>
                                 <li>
-                                    <strong>5D Gait Metrics:</strong> วิเคราะห์ลักษณะและท่าทางการเคลื่อนไหวขณะเดิน (Hip/Ankle Balance, Leg Extension, Arm Swing, Torso Tilt) เพื่อเพิ่มความแม่นยำในการระบุตัวตน
+                                    <strong>5D Gait Metrics:</strong> วิเคราะห์ลักษณะและท่าทางการเคลื่อนไหวขณะเดิน
+                                    (Hip/Ankle Balance, Leg Extension, Arm Swing, Torso Tilt)
+                                    เพื่อเพิ่มความแม่นยำในการระบุตัวตน
                                 </li>
                                 <li>
-                                    <strong>Hands-Free Kiosk Mode:</strong> นักศึกษาเพียงเดินผ่านหน้ากล้อง ระบบจะทำการตรวจจับใบหน้าและบันทึกเวลาเข้าเรียนโดยอัตโนมัติทันที
+                                    <strong>Hands-Free Kiosk Mode:</strong> นักศึกษาเพียงเดินผ่านหน้ากล้อง
+                                    ระบบจะทำการตรวจจับใบหน้าและบันทึกเวลาเข้าเรียนโดยอัตโนมัติทันที
                                 </li>
                             </ul>
                             <p class="text-adaptive-body">
-                                ข้อมูลทั้งหมดถูกประมวลผลผ่าน <strong>FastAPI Backend (Titan Auth API)</strong> และบันทึกเข้าสู่ฐานข้อมูล <strong>MongoDB Atlas</strong> แบบเรียลไทม์ รองรับหน้าแอดมินสำหรับดูสถิติและส่งออกรายงาน Excel/CSV
+                                ข้อมูลทั้งหมดถูกประมวลผลผ่าน <strong>FastAPI Backend (Titan Auth API)</strong>
+                                และบันทึกเข้าสู่ฐานข้อมูล <strong>MongoDB Atlas</strong> แบบเรียลไทม์
+                                รองรับหน้าแอดมินสำหรับดูสถิติและส่งออกรายงาน Excel/CSV
                             </p>
                         </div>
                         <div class="col-md-5">
@@ -1229,7 +1252,8 @@
                             <div class="d-flex flex-wrap gap-2 mb-4">
                                 <span class="badge rounded-pill bg-success">MediaPipe Pose (33 จุด)</span>
                                 <span class="badge rounded-pill bg-success">DeepFace (VGG-Face)</span>
-                                <span class="badge rounded-pill" style="background:#0891b2;">Dynamic QR (60s Cycle)</span>
+                                <span class="badge rounded-pill" style="background:#0891b2;">Dynamic QR (60s
+                                    Cycle)</span>
                                 <span class="badge rounded-pill" style="background:#047857;">MongoDB Atlas</span>
                                 <span class="badge rounded-pill bg-primary">Python 3.11</span>
                                 <span class="badge rounded-pill bg-primary">FastAPI (Titan Auth API)</span>

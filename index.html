@@ -673,7 +673,8 @@
                         UI/UX DESIGN & CREATIVE</p>
                     <div class="d-flex flex-wrap gap-2 mb-3">
                         <span class="tech-badge"><i class="bi bi-palette fs-5"></i> Figma (UI/UX Design)</span>
-                        <span class="tech-badge"><i class="bi bi-layout-text-window-reverse fs-5"></i> Wireframing & Prototyping</span>
+                        <span class="tech-badge"><i class="bi bi-layout-text-window-reverse fs-5"></i> Wireframing &
+                            Prototyping</span>
                         <span class="tech-badge"><i class="bi bi-grid-1x2 fs-5"></i> Design Systems</span>
                         <span class="tech-badge"><i class="bi bi-vector-pen fs-5"></i> User Flow & Mockup</span>
                         <span class="tech-badge"><i class="bi bi-image fs-5"></i> Digital Art</span>
@@ -724,18 +725,17 @@
                 <!-- Project Card 1: FaceQRity (Featured #1) -->
                 <div class="col-md-4">
                     <div class="card glass-card h-100 border-0">
-                        <img src="faceqrity-qrscan.png" class="card-img-top" alt="FaceQRity Smart Attendance"
+                        <img src="faceqrity-award.jpg" class="card-img-top" alt="FaceQRity Smart Attendance Award"
                             style="height: 200px; object-fit: cover; object-position: top; border-top-left-radius: 16px; border-top-right-radius: 16px; cursor: pointer;"
-                            onclick="openLightbox('faceqrity-qrscan.png')" title="คลิกเพื่อขยายดูรูปภาพ">
+                            onclick="openLightbox('faceqrity-award.jpg')" title="คลิกเพื่อขยายดูรูปภาพ">
                         <div class="card-body p-4">
-                            <span class="badge mb-2"
-                                style="background:linear-gradient(135deg,#059669,#0891b2);color:white;">AI & Web
-                                App</span>
-                            <h5 class="card-title fw-bold text-adaptive-heading">FaceQRity — ระบบเช็คชื่อด้วย AI
-                                สแกนใบหน้า + QR Code</h5>
+                            <div class="d-flex flex-wrap gap-1 mb-2">
+                                <span class="badge" style="background:linear-gradient(135deg,#059669,#0891b2);color:white;">AI & Web App</span>
+                                <span class="badge bg-warning text-dark"><i class="bi bi-trophy-fill me-1 text-danger"></i>รางวัลชมเชย Innovation Awards</span>
+                            </div>
+                            <h5 class="card-title fw-bold text-adaptive-heading">FaceQRity AI — นวัตกรรมระบบยืนยันตัวตนสองปัจจัยและเช็คชื่ออัจฉริยะ</h5>
                             <p class="card-text text-adaptive-muted small mb-4">
-                                ระบบตรวจสอบตัวตนและเช็คชื่อเข้าเรียนอัตโนมัติด้วย AI ตรวจจับใบหน้า (MediaPipe +
-                                DeepFace) และ QR Code แบบ Dynamic หมดอายุ 60 วินาที</p>
+                                ได้รับรางวัลชมเชย การประกวดนวัตกรรมระดับปริญญาตรี (หมวดวิทย์-เทคโนโลยี) มรพส. ปี 2569 | ยืนยันตัวตนด้วย AI ตรวจจับใบหน้าและ QR Code หมุนเวียน 60 วิ</p>
                             <button class="btn btn-sm btn-outline-success rounded-pill px-3" data-bs-toggle="modal"
                                 data-bs-target="#projectModal8">รายละเอียดเพิ่มเติม</button>
                         </div>
@@ -1147,13 +1147,27 @@
             <div class="modal-content">
                 <div class="modal-header border-0">
                     <h5 class="modal-title fw-bold text-adaptive-heading">
-                        <i class="bi bi-person-bounding-box me-2 text-success"></i>FaceQRity — Smart Attendance & AI
-                        Verification
+                        <i class="bi bi-person-bounding-box me-2 text-success"></i>FaceQRity AI — นวัตกรรมระบบยืนยันตัวตนสองปัจจัยและเช็คชื่ออัจฉริยะ
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-4">
-                    <!-- Screenshot carousel with real screenshots -->
+                    <!-- Award Highlight Alert Banner -->
+                    <div class="alert alert-warning border-warning-subtle d-flex align-items-center gap-3 p-3 mb-4 rounded-3"
+                        style="background: rgba(234, 179, 8, 0.12);">
+                        <i class="bi bi-trophy-fill text-warning fs-1 flex-shrink-0"></i>
+                        <div>
+                            <h6 class="fw-bold mb-1 text-adaptive-heading">🏆 ได้รับรางวัลชมเชย — หมวดผลงานด้านวิทยาศาสตร์และเทคโนโลยี</h6>
+                            <p class="text-adaptive-body small mb-1">
+                                การประกวดผลงานนวัตกรรมนักศึกษาระดับปริญญาตรี ครั้งที่ 1 ประจำปีการศึกษา 2569 จัดโดย กองบริการการศึกษา มหาวิทยาลัยราชภัฏพิบูลสงคราม
+                            </p>
+                            <small class="text-adaptive-muted">
+                                <strong>ทีมผู้พัฒนา (สาขาวิศวกรรมคอมพิวเตอร์):</strong> นายนัตถวุฒิ พุ่มประเสริฐ, นางสาวพัชราภรณ์ ขีดขิน, นายธันวา แคนเพ็ชร, นายสมเกียรติ แสงปัญญา, นางสาวกัญญาณัฐ สุวรรณ | <strong>ที่ปรึกษา:</strong> คณาจารย์สาขาวิศวกรรมคอมพิวเตอร์
+                            </small>
+                        </div>
+                    </div>
+
+                    <!-- Screenshot carousel with real screenshots and award -->
                     <div id="faceqrCarousel" class="carousel slide mb-4" data-bs-ride="carousel">
                         <div class="carousel-indicators">
                             <button type="button" data-bs-target="#faceqrCarousel" data-bs-slide-to="0" class="active"
@@ -1161,13 +1175,25 @@
                             <button type="button" data-bs-target="#faceqrCarousel" data-bs-slide-to="1"></button>
                             <button type="button" data-bs-target="#faceqrCarousel" data-bs-slide-to="2"></button>
                             <button type="button" data-bs-target="#faceqrCarousel" data-bs-slide-to="3"></button>
+                            <button type="button" data-bs-target="#faceqrCarousel" data-bs-slide-to="4"></button>
                         </div>
                         <div class="carousel-inner rounded-3 overflow-hidden border" style="background:#0b0f19;">
-                            <!-- Slide 1: QR & Face Scan -->
+                            <!-- Slide 1: Award Ceremony -->
                             <div class="carousel-item active">
+                                <img src="faceqrity-award.jpg" class="d-block w-100 hover-zoom"
+                                    alt="FaceQRity Innovation Award"
+                                    style="max-height: 460px; object-fit: contain; background: #0b0f19; cursor: pointer; transition: transform 0.2s ease-in-out;"
+                                    onclick="openLightbox('faceqrity-award.jpg')" title="คลิกเพื่อขยายดูรูปภาพ">
+                                <div class="carousel-caption d-none d-md-block"
+                                    style="background: rgba(15, 23, 42, 0.85); border-radius: 8px; padding: 6px 16px; bottom: 12px; backdrop-filter: blur(8px);">
+                                    <small class="fw-semibold text-warning">🏆 รับมอบรางวัลชมเชย การประกวดผลงานนวัตกรรมนักศึกษาระดับปริญญาตรี ครั้งที่ 1 ประจำปีการศึกษา 2569</small>
+                                </div>
+                            </div>
+                            <!-- Slide 2: QR & Face Scan -->
+                            <div class="carousel-item">
                                 <img src="faceqrity-qrscan.png" class="d-block w-100 hover-zoom"
                                     alt="FaceQRity Dynamic QR & Face Scan"
-                                    style="max-height: 440px; object-fit: contain; background: #0b0f19; cursor: pointer; transition: transform 0.2s ease-in-out;"
+                                    style="max-height: 460px; object-fit: contain; background: #0b0f19; cursor: pointer; transition: transform 0.2s ease-in-out;"
                                     onclick="openLightbox('faceqrity-qrscan.png')" title="คลิกเพื่อขยายดูรูปภาพ">
                                 <div class="carousel-caption d-none d-md-block"
                                     style="background: rgba(15, 23, 42, 0.85); border-radius: 8px; padding: 6px 16px; bottom: 12px; backdrop-filter: blur(8px);">
@@ -1175,11 +1201,11 @@
                                         หมุนเวียนหมดอายุทุก 60 วินาที + Hands-Free Kiosk Mode</small>
                                 </div>
                             </div>
-                            <!-- Slide 2: Realtime Skeleton & Gait -->
+                            <!-- Slide 3: Realtime Skeleton & Gait -->
                             <div class="carousel-item">
                                 <img src="faceqrity-gait.png" class="d-block w-100 hover-zoom"
                                     alt="FaceQRity AI Skeleton & Gait Detection"
-                                    style="max-height: 440px; object-fit: contain; background: #0b0f19; cursor: pointer; transition: transform 0.2s ease-in-out;"
+                                    style="max-height: 460px; object-fit: contain; background: #0b0f19; cursor: pointer; transition: transform 0.2s ease-in-out;"
                                     onclick="openLightbox('faceqrity-gait.png')" title="คลิกเพื่อขยายดูรูปภาพ">
                                 <div class="carousel-caption d-none d-md-block"
                                     style="background: rgba(15, 23, 42, 0.85); border-radius: 8px; padding: 6px 16px; bottom: 12px; backdrop-filter: blur(8px);">
@@ -1187,11 +1213,11 @@
                                         ระบุตัวตน Realtime (DeepFace AI) พร้อม 5D Gait Metrics</small>
                                 </div>
                             </div>
-                            <!-- Slide 3: Report & Analytics -->
+                            <!-- Slide 4: Report & Analytics -->
                             <div class="carousel-item">
                                 <img src="faceqrity-report.png" class="d-block w-100 hover-zoom"
                                     alt="FaceQRity Attendance Report & Analytics"
-                                    style="max-height: 440px; object-fit: contain; background: #0b0f19; cursor: pointer; transition: transform 0.2s ease-in-out;"
+                                    style="max-height: 460px; object-fit: contain; background: #0b0f19; cursor: pointer; transition: transform 0.2s ease-in-out;"
                                     onclick="openLightbox('faceqrity-report.png')" title="คลิกเพื่อขยายดูรูปภาพ">
                                 <div class="carousel-caption d-none d-md-block"
                                     style="background: rgba(15, 23, 42, 0.85); border-radius: 8px; padding: 6px 16px; bottom: 12px; backdrop-filter: blur(8px);">
@@ -1199,11 +1225,11 @@
                                         สรุปสถิติ ตรงเวลา/มาสาย/ขาด และส่งออก Excel/CSV</small>
                                 </div>
                             </div>
-                            <!-- Slide 4: Walk-by Log -->
+                            <!-- Slide 5: Walk-by Log -->
                             <div class="carousel-item">
                                 <img src="faceqrity-walklog.png" class="d-block w-100 hover-zoom"
                                     alt="FaceQRity Walk-by Scan Log"
-                                    style="max-height: 440px; object-fit: contain; background: #0b0f19; cursor: pointer; transition: transform 0.2s ease-in-out;"
+                                    style="max-height: 460px; object-fit: contain; background: #0b0f19; cursor: pointer; transition: transform 0.2s ease-in-out;"
                                     onclick="openLightbox('faceqrity-walklog.png')" title="คลิกเพื่อขยายดูรูปภาพ">
                                 <div class="carousel-caption d-none d-md-block"
                                     style="background: rgba(15, 23, 42, 0.85); border-radius: 8px; padding: 6px 16px; bottom: 12px; backdrop-filter: blur(8px);">
@@ -1309,15 +1335,32 @@
     <section id="certificates" class="py-5" style="margin-top: 80px;">
         <div class="container py-5">
             <div class="text-center mb-5">
-                <h2 class="fw-bold display-5 text-adaptive-heading">ใบ Certificate</h2>
+                <h2 class="fw-bold display-5 text-adaptive-heading">ใบ Certificate & รางวัลความสำเร็จ</h2>
                 <div class="mx-auto"
                     style="width: 60px; height: 4px; background: var(--gradient-main); border-radius: 2px; margin-top: 12px;">
                 </div>
-                <p class="text-adaptive-muted mt-3">ใบรับรองและประกาศนียบัตรที่ได้รับจากการเข้าร่วมกิจกรรม อบรม
-                    และการแข่งขันต่างๆ</p>
+                <p class="text-adaptive-muted mt-3">ใบรับรอง ประกาศนียบัตร และรางวัลความสำเร็จที่ได้รับจากการประกวดนวัตกรรม การอบรม และกิจกรรมต่างๆ</p>
             </div>
 
             <div class="row g-4">
+                <!-- Award Card 1: Student Innovation Awards 2569 (FaceQRity) -->
+                <div class="col-md-4">
+                    <div class="cert-card" onclick="openLightbox('faceqrity-award.jpg')" title="คลิกเพื่อขยายดูประกาศนียบัตร">
+                        <div class="cert-img-wrap">
+                            <img src="faceqrity-award.jpg" alt="Student Innovation Awards 2569 (FaceQRity AI)">
+                            <div class="cert-overlay">
+                                <span class="cert-zoom-icon"><i class="bi bi-zoom-in"></i> ขยายดู</span>
+                            </div>
+                        </div>
+                        <div class="cert-body">
+                            <span class="cert-tag"
+                                style="background: rgba(234,179,8,0.15); color: #d97706;"><i class="bi bi-trophy-fill me-1"></i>รางวัลชมเชย</span>
+                            <h6 class="fw-bold text-adaptive-heading mb-1">Student Innovation Awards 2569</h6>
+                            <p class="text-adaptive-muted small mb-0">การประกวดนวัตกรรมระดับปริญญาตรี ครั้งที่ 1 (หมวดวิทย์-เทคโนโลยี) | โครงงาน FaceQRity AI | กองบริการการศึกษา มรพส.</p>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Certificate Card 1 -->
                 <div class="col-md-4">
                     <div class="cert-card" onclick="openLightbox('cert1.jpg')" title="คลิกเพื่อขยายดูใบ Certificate">

@@ -164,11 +164,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             /* Indigo */
             --secondary-color: #06b6d4;
             /* Cyan */
-            --dark-bg: #0b0f19;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --text-heading: #0f172a;
+            --text-body: #334155;
+            --text-muted-color: #64748b;
             --gradient-main: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             --accent-pink: #ec4899;
             --accent-green: #10b981;
@@ -176,8 +177,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         body {
             font-family: 'Prompt', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-light);
+            background-color: var(--bg-color);
+            color: var(--text-body);
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
@@ -209,7 +210,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         /* Glassmorphism Navigation */
         .custom-nav {
-            background: rgba(11, 15, 25, 0.85) !important;
+            background: rgba(248, 250, 252, 0.88) !important;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--card-border);
@@ -227,14 +228,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         .nav-link {
-            color: var(--text-muted) !important;
+            color: var(--text-muted-color) !important;
             font-weight: 500;
             transition: all 0.3s ease;
         }
 
         .nav-link:hover,
         .nav-link.active {
-            color: var(--text-light) !important;
+            color: var(--text-heading) !important;
         }
 
         /* Hero Header */
@@ -254,7 +255,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         /* Navigation Tabs styled as pills */
         .custom-tabs-container {
-            background: rgba(255, 255, 255, 0.02);
+            background: #f1f5f9;
             border: 1px solid var(--card-border);
             border-radius: 50px;
             padding: 5px;
@@ -265,7 +266,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         .tab-btn {
             background: transparent;
             border: none;
-            color: var(--text-muted);
+            color: var(--text-muted-color);
             padding: 10px 24px;
             border-radius: 50px;
             font-weight: 600;
@@ -277,7 +278,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         .tab-btn:hover {
-            color: var(--text-light);
+            color: var(--text-heading);
         }
 
         .tab-btn.active {
@@ -294,7 +295,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             -webkit-backdrop-filter: blur(12px);
             border-radius: 18px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
 
         .glass-card:hover {
@@ -303,7 +304,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         .form-label-custom {
             font-weight: 500;
-            color: var(--text-light);
+            color: var(--text-heading);
             margin-bottom: 8px;
             font-size: 0.95rem;
             display: flex;
@@ -313,9 +314,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         .form-control-custom,
         .form-select-custom {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-light);
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            color: var(--text-heading);
             border-radius: 12px;
             padding: 12px 16px;
             font-family: inherit;
@@ -324,21 +325,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         .form-control-custom:focus,
         .form-select-custom:focus {
-            background: rgba(255, 255, 255, 0.08);
+            background: #ffffff;
             border-color: var(--primary-color);
-            box-shadow: 0 0 12px rgba(99, 102, 241, 0.25);
-            color: var(--text-light);
+            box-shadow: 0 0 12px rgba(99, 102, 241, 0.2);
+            color: var(--text-heading);
             outline: none;
         }
 
         .form-select-custom option {
-            background: var(--dark-bg);
-            color: var(--text-light);
+            background: var(--bg-color);
+            color: var(--text-heading);
         }
 
         /* Stat Badges */
         .stat-card {
-            background: rgba(255, 255, 255, 0.02);
+            background: #f8fafc;
             border: 1px solid var(--card-border);
             border-radius: 14px;
             padding: 20px;
@@ -348,7 +349,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         .stat-card:hover {
             transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.04);
+            background: #f1f5f9;
         }
 
         /* Amortization Table Styles */
@@ -360,37 +361,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         .custom-table {
             margin-bottom: 0;
-            color: var(--text-light);
+            color: var(--text-body);
         }
 
         .custom-table th {
-            background: rgba(255, 255, 255, 0.03);
-            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+            background: #f1f5f9;
+            border-bottom: 2px solid #e2e8f0;
             padding: 15px;
             font-weight: 600;
             text-transform: uppercase;
             font-size: 0.85rem;
             letter-spacing: 0.5px;
+            color: var(--text-heading);
         }
 
         .custom-table td {
             padding: 14px 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid #f1f5f9;
             vertical-align: middle;
             font-size: 0.95rem;
         }
 
         .custom-table tbody tr:hover {
-            background: rgba(255, 255, 255, 0.02);
+            background: #f8fafc;
         }
 
         /* GOOGLE DOCS A4 SIMULATOR */
         .doc-workspace {
-            background-color: #1e2230;
+            background-color: #dde1e7;
             padding: 40px 20px;
             border-radius: 18px;
             border: 1px solid var(--card-border);
-            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.5);
+            box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.15);
             overflow-x: auto;
             display: flex;
             flex-direction: column;
@@ -511,9 +513,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             margin-top: auto;
             border-top: 1px solid var(--card-border);
             padding: 20px 0;
-            background: rgba(11, 15, 25, 0.9);
+            background: rgba(248, 250, 252, 0.95);
             font-size: 0.9rem;
-            color: var(--text-muted);
+            color: var(--text-muted-color);
         }
 
         /* PRINT STYLESHEET */
@@ -568,10 +570,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 <i class="bi bi-cpu-fill text-info fs-4 animate-glow"></i>
                 <span>TAN PORTFOLIO</span>
             </a>
-            <button class="navbar-toggler border-0 text-light" type="button" data-bs-toggle="collapse"
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto gap-2">
@@ -598,7 +600,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="page-header">
             <h1 class="display-5 font-weight-bold"><span class="gradient-text">Lab 3: PHP & Dynamic Input/Output</span>
             </h1>
-            <p class="text-white col-lg-8 mx-auto mt-2">
+            <p class="text-body-secondary col-lg-8 mx-auto mt-2">
                 นวัตกรรมการคำนวณทางการเงินและการบริหารจัดการข้อมูลแบบไดนามิก พร้อมสรุปบทเรียนวิชาการในรูปแบบจำลอง Google
                 Doc พิมพ์ได้เสมือนจริง
             </p>
@@ -646,7 +648,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 <input type="text" class="form-control form-control-custom" id="principal"
                                     name="principal" placeholder="ตัวอย่าง: 100,000"
                                     value="<?php echo htmlspecialchars(number_format($principal)); ?>" required>
-                                <small class="text-white d-block mt-1">กรอกจำนวนเงินต้นเต็มจำนวนเป็นตัวเลข</small>
+                                <small class="text-muted d-block mt-1">กรอกจำนวนเงินต้นเต็มจำนวนเป็นตัวเลข</small>
                             </div>
 
                             <!-- Interest Rate (Select Element: 3% - 12%) -->
@@ -707,21 +709,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 <div class="row g-3 mb-4">
                                     <div class="col-md-4">
                                         <div class="stat-card">
-                                            <div class="text-white small mb-1">เงินต้นทั้งหมด</div>
+                                            <div class="text-muted small mb-1">เงินต้นทั้งหมด</div>
                                             <div class="fs-4 fw-bold text-light">
                                                 ฿<?php echo number_format($principal, 2); ?></div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="stat-card">
-                                            <div class="text-white small mb-1">รวมดอกเบี้ยที่ต้องจ่าย</div>
+                                            <div class="text-muted small mb-1">รวมดอกเบี้ยที่ต้องจ่าย</div>
                                             <div class="fs-4 fw-bold text-danger">
                                                 ฿<?php echo number_format($total_interest, 2); ?></div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="stat-card">
-                                            <div class="text-white small mb-1">รวมเงินต้น + ดอกเบี้ย</div>
+                                            <div class="text-muted small mb-1">รวมเงินต้น + ดอกเบี้ย</div>
                                             <div class="fs-4 fw-bold text-info">
                                                 ฿<?php echo number_format($total_payment, 2); ?></div>
                                         </div>
@@ -733,15 +735,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                     <table class="table custom-table text-center table-hover">
                                         <thead>
                                             <tr>
-                                                <th scope="col" class="text-white">งวดที่</th>
-                                                <th scope="col" class="text-white">ยอดผ่อนชำระ<br><small
-                                                        class="text-white">(ต่องวด)</small>
+                                                <th scope="col" class="text-dark">งวดที่</th>
+                                                <th scope="col" class="text-dark">ยอดผ่อนชำระ<br><small
+                                                        class="text-muted">(ต่องวด)</small>
                                                 </th>
-                                                <th scope="col" class="text-white">จำนวนเงินต้น<br><small
-                                                        class="text-white">(ต่องวด)</small>
+                                                <th scope="col" class="text-dark">จำนวนเงินต้น<br><small
+                                                        class="text-muted">(ต่องวด)</small>
                                                 </th>
-                                                <th scope="col" class="text-white">จำนวนดอกเบี้ย<br><small
-                                                        class="text-white">(ต่องวด)</small>
+                                                <th scope="col" class="text-dark">จำนวนดอกเบี้ย<br><small
+                                                        class="text-muted">(ต่องวด)</small>
                                                 </th>
                                                 <th scope="col" class="text-info">จำนวนเงินต้น<br><small
                                                         class="text-info-emphasis">(คงเหลือ)</small></th>
@@ -788,7 +790,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <div class="doc-workspace-header d-flex justify-content-between align-items-center mb-3">
                 <span class="text-muted"><i class="bi bi-info-circle-fill text-info me-1"></i> โหมดการจำลองเอกสารวิชาการ
                     A4 เพื่อส่งงานอาจารย์ (กดพิมพ์ได้จริงเพื่อส่งเป็น PDF)</span>
-                <button class="btn btn-outline-light rounded-pill btn-sm d-flex align-items-center gap-2"
+                <button class="btn btn-outline-secondary rounded-pill btn-sm d-flex align-items-center gap-2"
                     onclick="window.print()">
                     <i class="bi bi-printer"></i> สั่งพิมพ์ / บันทึกเป็น PDF
                 </button>

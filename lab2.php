@@ -156,19 +156,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         :root {
             --primary-color: #6366f1; /* Indigo */
             --secondary-color: #06b6d4; /* Cyan */
-            --dark-bg: #0b0f19;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --text-light: #f8fafc;
-            --text-muted: #94a3b8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --text-heading: #0f172a;
+            --text-body: #334155;
+            --text-muted-color: #64748b;
             --gradient-main: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
             --accent-green: #10b981;
         }
 
         body {
             font-family: 'Prompt', 'Outfit', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-light);
+            background-color: var(--bg-color);
+            color: var(--text-body);
             min-height: 100vh;
             overflow-x: hidden;
             position: relative;
@@ -200,7 +201,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         /* Custom Glassmorphism Navigation */
         .custom-nav {
-            background: rgba(11, 15, 25, 0.8) !important;
+            background: rgba(248, 250, 252, 0.88) !important;
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--card-border);
@@ -216,14 +217,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         .nav-link {
-            color: var(--text-muted) !important;
+            color: var(--text-muted-color) !important;
             font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .nav-link:hover,
         .nav-link.active {
-            color: var(--text-light) !important;
+            color: var(--text-heading) !important;
         }
 
         /* Hero Header */
@@ -247,18 +248,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             -webkit-backdrop-filter: blur(12px);
             border-radius: 18px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
 
         .glass-card:hover {
             border-color: rgba(99, 102, 241, 0.3);
-            box-shadow: 0 15px 35px rgba(99, 102, 241, 0.1);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.1);
         }
 
         /* Styled Labels & Controls */
         .form-label-custom {
             font-weight: 500;
-            color: var(--text-light);
+            color: var(--text-heading);
             margin-bottom: 8px;
             font-size: 0.95rem;
             display: flex;
@@ -267,9 +268,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         .form-control-custom {
-            background: rgba(255, 255, 255, 0.04);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            color: var(--text-light);
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            color: var(--text-heading);
             border-radius: 10px;
             padding: 12px 16px;
             font-family: inherit;
@@ -277,10 +278,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         .form-control-custom:focus {
-            background: rgba(255, 255, 255, 0.08);
+            background: #ffffff;
             border-color: var(--primary-color);
-            box-shadow: 0 0 12px rgba(99, 102, 241, 0.25);
-            color: var(--text-light);
+            box-shadow: 0 0 12px rgba(99, 102, 241, 0.2);
+            color: var(--text-heading);
             outline: none;
         }
 
@@ -310,8 +311,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
 
         .radio-card-inner {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             border-radius: 12px;
             padding: 20px 16px;
             text-align: center;
@@ -328,7 +329,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             width: 22px;
             height: 22px;
             border-radius: 50%;
-            border: 2px solid var(--text-muted);
+            border: 2px solid #94a3b8;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -364,8 +365,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         /* Billing Switch Styled Radios */
         .billing-selector {
             display: flex;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #f1f5f9;
+            border: 1px solid #e2e8f0;
             border-radius: 30px;
             padding: 4px;
             margin-bottom: 20px;
@@ -390,7 +391,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             border-radius: 25px;
             cursor: pointer;
             font-weight: 600;
-            color: var(--text-muted);
+            color: var(--text-muted-color);
             transition: all 0.3s ease;
             font-size: 0.9rem;
         }
@@ -412,23 +413,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             display: flex;
             align-items: center;
             padding: 14px 18px;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             border-radius: 12px;
             cursor: pointer;
             transition: all 0.2s ease;
         }
 
         .checkbox-custom-item:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(99, 102, 241, 0.2);
+            background: #f1f5f9;
+            border-color: rgba(99, 102, 241, 0.3);
         }
 
         .checkbox-custom-input {
             width: 20px;
             height: 20px;
             border-radius: 5px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid #cbd5e1;
             background-color: transparent;
             cursor: pointer;
             margin-right: 14px;
@@ -439,7 +440,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         .checkbox-custom-label {
             flex-grow: 1;
             font-size: 0.95rem;
-            color: var(--text-light);
+            color: var(--text-body);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -491,7 +492,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             display: flex;
             justify-content: space-between;
             padding: 10px 0;
-            border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+            border-bottom: 1px dashed #e2e8f0;
             font-size: 0.95rem;
         }
 
@@ -499,7 +500,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             border-bottom: none;
             font-size: 1.3rem;
             font-weight: 700;
-            color: white;
+            color: var(--text-heading);
             padding-top: 15px;
         }
 
@@ -560,7 +561,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         /* Visual bar indicators for Resource Specs */
         .resource-bar {
             height: 6px;
-            background: rgba(255, 255, 255, 0.05);
+            background: #e2e8f0;
             border-radius: 3px;
             margin-top: 5px;
             overflow: hidden;
@@ -575,7 +576,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         footer {
             border-top: 1px solid var(--card-border);
             padding: 30px 0;
-            background: rgba(7, 10, 17, 0.95);
+            background: rgba(248, 250, 252, 0.95);
             margin-top: auto;
         }
     </style>
@@ -590,7 +591,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <nav class="navbar navbar-expand-lg custom-nav fixed-top py-3">
         <div class="container">
             <a class="navbar-brand fs-4" href="index.html">TAN_NATTAWUT</a>
-            <button class="navbar-toggler border-0 text-light" type="button" data-bs-toggle="collapse"
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
                 aria-label="Toggle navigation">
                 <span class="bi bi-list fs-2"></span>
@@ -625,7 +626,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     ใบงานเรื่อง PHP & FORM INPUT
                 </span>
                 <h1 class="display-5 fw-bold mb-3">Cloud Server <span class="gradient-text">Cost Estimator</span></h1>
-                <p class="text-white-50">
+                <p class="text-body-secondary">
                     ออกแบบจัดแจงสเปคของเซิร์ฟเวอร์ที่คุณต้องการ และคำนวณราคาค่าบริการทั้งหมดแบบเรียลไทม์ผ่านระบบเซิร์ฟเวอร์ไซด์ของ PHP
                 </p>
             </div>
@@ -639,7 +640,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <!-- Left Column: Input Form -->
             <div class="col-lg-7">
                 <div class="card glass-card p-4 p-md-5 h-100">
-                    <h2 class="h4 fw-bold mb-4 text-white"><i class="bi bi-sliders text-primary me-2"></i>ปรับแต่งค่าสเปคเซิร์ฟเวอร์</h2>
+                    <h2 class="h4 fw-bold mb-4"><i class="bi bi-sliders text-primary me-2"></i>ปรับแต่งค่าสเปคเซิร์ฟเวอร์</h2>
                     
                     <!-- Display validation errors if any -->
                     <?php if (!empty($errors)): ?>
@@ -684,7 +685,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                        max="64" 
                                        value="<?php echo $cpu_cores; ?>" 
                                        required>
-                                <div class="text-white-50 small mt-1">ขอบเขต: 1 - 64 Cores</div>
+                                <div class="text-muted small mt-1">ขอบเขต: 1 - 64 Cores</div>
                             </div>
                             <div class="col-md-6">
                                 <label for="ram_gb" class="form-label-custom" id="label-ram-gb">
@@ -698,7 +699,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                        max="512" 
                                        value="<?php echo $ram_gb; ?>" 
                                        required>
-                                <div class="text-white-50 small mt-1">ขอบเขต: 1 - 512 GB</div>
+                                <div class="text-muted small mt-1">ขอบเขต: 1 - 512 GB</div>
                             </div>
                         </div>
 
@@ -720,8 +721,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <div class="custom-radio-indicator">
                                             <div class="custom-radio-dot"></div>
                                         </div>
-                                        <span class="fw-semibold text-white d-block">Shared CPU</span>
-                                        <span class="text-white-50 small">$5 / Core / เดือน</span>
+                                        <span class="fw-semibold text-dark d-block">Shared CPU</span>
+                                        <span class="text-muted small">$5 / Core / เดือน</span>
                                     </div>
                                 </label>
                                 
@@ -736,8 +737,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <div class="custom-radio-indicator">
                                             <div class="custom-radio-dot"></div>
                                         </div>
-                                        <span class="fw-semibold text-white d-block">Dedicated CPU</span>
-                                        <span class="text-white-50 small">$15 / Core / เดือน</span>
+                                        <span class="fw-semibold text-dark d-block">Dedicated CPU</span>
+                                        <span class="text-muted small">$15 / Core / เดือน</span>
                                     </div>
                                 </label>
                                 
@@ -752,8 +753,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                         <div class="custom-radio-indicator">
                                             <div class="custom-radio-dot"></div>
                                         </div>
-                                        <span class="fw-semibold text-white d-block">High-Memory</span>
-                                        <span class="text-white-50 small">$25 / Core / เดือน</span>
+                                        <span class="fw-semibold text-dark d-block">High-Memory</span>
+                                        <span class="text-muted small">$25 / Core / เดือน</span>
                                     </div>
                                 </label>
                                 
@@ -870,8 +871,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <!-- Result State: Calculations outputs display -->
                         <div class="invoice-header text-center mb-4">
                             <div class="display-6 text-primary mb-2"><i class="bi bi-file-earmark-check-fill"></i></div>
-                            <h3 class="h4 fw-bold text-white mb-1">ใบประเมินค่าบริการระบบ</h3>
-                            <p class="text-white-50 small">ใบประเมินราคาชั่วคราวผ่าน POST Method</p>
+                            <h3 class="h4 fw-bold text-dark mb-1">ใบประเมินค่าบริการระบบ</h3>
+                            <p class="text-muted small">ใบประเมินราคาชั่วคราวผ่าน POST Method</p>
                         </div>
                         
                         <div class="invoice-body">
@@ -879,20 +880,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             
                             <!-- Project/Server details -->
                             <div class="invoice-item-row">
-                                <span class="text-white-50">ชื่อโครงการเซิร์ฟเวอร์:</span>
-                                <span class="fw-bold text-white text-end text-wrap" style="max-width: 200px; word-break: break-all;">
+                                <span class="text-muted">ชื่อโครงการเซิร์ฟเวอร์:</span>
+                                <span class="fw-bold text-dark text-end text-wrap" style="max-width: 200px; word-break: break-all;">
                                     <?php echo $server_name; ?>
                                 </span>
                             </div>
                             
                             <div class="invoice-item-row">
-                                <span class="text-white-50">ระดับประสิทธิภาพ (Tier):</span>
+                                <span class="text-muted">ระดับประสิทธิภาพ (Tier):</span>
                                 <span class="fw-semibold text-info"><?php echo $tier_names[$server_tier]; ?></span>
                             </div>
 
                             <div class="invoice-item-row">
-                                <span class="text-white-50">สเปคความจุหลัก:</span>
-                                <span class="text-white font-monospace">
+                                <span class="text-muted">สเปคความจุหลัก:</span>
+                                <span class="text-dark font-monospace">
                                     <span class="spec-badge me-1"><?php echo $cpu_cores; ?> Cores</span>
                                     <span class="spec-badge"><?php echo $ram_gb; ?> GB RAM</span>
                                 </span>
@@ -900,7 +901,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                             <!-- Resource Graph Visuals -->
                             <div class="mb-4 mt-2">
-                                <div class="d-flex justify-content-between small text-white-50">
+                                <div class="d-flex justify-content-between small text-muted">
                                     <span>ภาระประมวลผลเครื่องจำลอง:</span>
                                     <span><?php echo ($cpu_cores * 4 + $ram_gb) . ' pts'; ?></span>
                                 </div>
@@ -912,24 +913,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                             <div class="invoice-title mt-4">รายการแยกรายละเอียดราคา</div>
                             
                             <div class="invoice-item-row">
-                                <span class="text-white-50">ค่าประมวลผล CPU ($<?php echo $cpu_rate; ?>/Core):</span>
-                                <span class="text-white">$<?php echo number_format($cpu_cost, 2); ?>/เดือน</span>
+                                <span class="text-muted">ค่าประมวลผล CPU ($<?php echo $cpu_rate; ?>/Core):</span>
+                                <span class="text-dark">$<?php echo number_format($cpu_cost, 2); ?>/เดือน</span>
                             </div>
 
                             <div class="invoice-item-row">
-                                <span class="text-white-50">ค่าหน่วยความจำ RAM ($1.50/GB):</span>
-                                <span class="text-white">$<?php echo number_format($ram_cost, 2); ?>/เดือน</span>
+                                <span class="text-muted">ค่าหน่วยความจำ RAM ($1.50/GB):</span>
+                                <span class="text-dark">$<?php echo number_format($ram_cost, 2); ?>/เดือน</span>
                             </div>
 
                             <?php if (!empty($selected_addons)): ?>
                                 <div class="invoice-item-row">
-                                    <span class="text-white-50">ค่าบริการเสริม (<?php echo count($selected_addons); ?> รายการ):</span>
-                                    <span class="text-white">$<?php echo number_format($addons_subtotal, 2); ?>/เดือน</span>
+                                    <span class="text-muted">ค่าบริการเสริม (<?php echo count($selected_addons); ?> รายการ):</span>
+                                    <span class="text-dark">$<?php echo number_format($addons_subtotal, 2); ?>/เดือน</span>
                                 </div>
                                 
                                 <!-- List detailed active addons -->
                                 <div class="p-3 my-2 rounded" style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.04);">
-                                    <ul class="list-unstyled mb-0 small text-white-50">
+                                    <ul class="list-unstyled mb-0 small text-muted">
                                         <?php foreach ($selected_addons as $addon): ?>
                                             <li class="d-flex justify-content-between mb-1">
                                                 <span><i class="bi bi-plus-circle text-success me-1"></i> <?php echo $addon_details[$addon]["name"]; ?></span>
@@ -940,18 +941,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 </div>
                             <?php else: ?>
                                 <div class="invoice-item-row">
-                                    <span class="text-white-50">ค่าบริการเสริมพิเศษ:</span>
-                                    <span class="text-white-50">ไม่มีบริการเสริม</span>
+                                    <span class="text-muted">ค่าบริการเสริมพิเศษ:</span>
+                                    <span class="text-muted">ไม่มีบริการเสริม</span>
                                 </div>
                             <?php endif; ?>
 
                             <div class="invoice-item-row">
-                                <span class="text-white-50">รวมค่าบริการรายเดือนจริง:</span>
-                                <span class="text-white fw-bold">$<?php echo number_format($monthly_subtotal, 2); ?>/เดือน</span>
+                                <span class="text-muted">รวมค่าบริการรายเดือนจริง:</span>
+                                <span class="text-dark fw-bold">$<?php echo number_format($monthly_subtotal, 2); ?>/เดือน</span>
                             </div>
 
                             <div class="invoice-item-row">
-                                <span class="text-white-50">รอบการเก็บค่าบริการ:</span>
+                                <span class="text-muted">รอบการเก็บค่าบริการ:</span>
                                 <span class="badge <?php echo ($billing_cycle === 'yearly') ? 'bg-success' : 'bg-secondary'; ?>">
                                     <?php echo ($billing_cycle === 'yearly') ? 'ชำระรายปี (คุ้มค่ากว่า)' : 'ชำระรายเดือน'; ?>
                                 </span>
@@ -959,7 +960,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                             <?php if ($billing_cycle === 'yearly'): ?>
                                 <div class="invoice-item-row">
-                                    <span class="text-white-50">ส่วนลดโปรโมชั่นรายปี (2 เดือน):</span>
+                                    <span class="text-muted">ส่วนลดโปรโมชั่นรายปี (2 เดือน):</span>
                                     <span class="text-success fw-bold">-$<?php echo number_format($yearly_savings, 2); ?></span>
                                 </div>
                             <?php endif; ?>
@@ -969,7 +970,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                                 <span>ยอดชำระสุทธิ:</span>
                                 <div class="text-end">
                                     <span class="gradient-text">$<?php echo number_format($total_cost, 2); ?></span>
-                                    <div class="text-white-50 small fw-normal" style="font-size: 0.75rem; margin-top:-5px;">
+                                    <div class="text-muted small fw-normal" style="font-size: 0.75rem; margin-top:-5px;">
                                         (ชำระต่อ<?php echo ($billing_cycle === 'yearly') ? 'ปี' : 'เดือน'; ?>)
                                     </div>
                                 </div>
@@ -990,8 +991,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         <!-- Initial State / Empty State (GET Method) -->
                         <div class="calculator-placeholder" id="placeholder-container">
                             <i class="bi bi-clouds-fill"></i>
-                            <h3 class="h5 text-white fw-semibold mb-2">รอดำเนินการประมวลผลคำนวณ</h3>
-                            <p class="text-white-50 small mb-0 px-md-4">
+                            <h3 class="h5 text-dark fw-semibold mb-2">รอดำเนินการประมวลผลคำนวณ</h3>
+                            <p class="text-muted small mb-0 px-md-4">
                                 ปรับแต่งขนาดทรัพยากรเซิร์ฟเวอร์ ระดับการประมวลผล และบริการเสริมที่ท่านต้องการทางด้านซ้าย แล้วกดปุ่มคำนวณเพื่อรับใบประเมินราคา
                             </p>
                         </div>
@@ -1006,7 +1007,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <!-- Footer Page -->
     <footer class="text-center">
         <div class="container">
-            <p class="mb-3 text-white-50">&copy; 2026 Nattawut Pumprasert (Tan). All rights reserved.</p>
+            <p class="mb-3 text-muted">&copy; 2026 Nattawut Pumprasert (Tan). All rights reserved.</p>
             <div class="d-flex justify-content-center gap-3">
                 <a href="https://github.com/TanMakoto" class="text-muted fs-4" title="GitHub" target="_blank"><i class="bi bi-github"></i></a>
                 <a href="#" class="text-muted fs-4" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
